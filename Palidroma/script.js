@@ -4,34 +4,36 @@
 */
 
 // Versione senza inserimento input dall'utente
-// const parola = 'anna';
-// const parolaDivisa = parola.split('');
-// console.log(parolaDivisa);
-// const parolaInversa = invertiParola(parola);
+const parola = 'anna';
+const parolaInversa = invertiParola(parola);
 
-// if (parola == parolaInversa){
-//     console.log('la parola è palindroma');
-// } else {
-//     console.log('la parola non è palindroma')
-// }
-
-// function invertiParola(str) {
-//     const strInversa = str.split('').reverse().join('');
-//     return strInversa;    
-// }
-
-//Versione con inserimento input dall'utente
-const input = document.querySelector('input');
-const parolaDivisa = input.slipt('');
-const parolaInversa = invertiParola(input);
-
-if (input == parolaInversa){
-    output.textContent = e.target.value;
+console.log(parola, parolaInversa);
+if (parola == parolaInversa){
+    console.log('la parola è palindroma');
 } else {
-    output.textContent = ('no')
+    console.log('la parola non è palindroma')
 }
 
+
+//Versione con inserimento input dall'utente
+const input = document.querySelector('#input');
+const output = document.querySelector('#output');
+
+input.addEventListener("change", function (event) {
+    const testoInput = event.target.value;
+
+    const parolaInversa = invertiParola(testoInput);
+
+    if (testoInput == parolaInversa){
+        output.textContent = "è palindromo";
+    } else {
+        output.textContent = "non è palindromo";
+    }
+});
+
 function invertiParola(str) {
-    const strInversa = str.slipt('').reverse().join('');
-    return strInversa;
+    const arrCaratteri = str.split("");
+    const arrCaratteriInversi = arrCaratteri.reverse();
+    const strInversa = arrCaratteriInversi.join("");
+    return strInversa;    
 }
