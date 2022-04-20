@@ -8,9 +8,44 @@
 Bonus - Inserimento dati con campo di input*/
 
 const numeroUtente = document.querySelector('.numeroUtente');
-console.log(numeroUtente);
+const sceltaUtente = document.querySelector('.sceltaUtente');
+const sceltaUtenteInput = document.querySelector('.sceltaUtenteInput');
+const numeroUtenteInput = document.querySelector('.numeroUtenteInput');
+const numeroComputer = document.querySelector('.numeroComputer');
+const risultato = document.querySelector('.risultato');
 
-numeroUtente.addEventListener('change', function (event){
-    const numeroUtenteInput = event.target.value;
-    numeroUtenteInput.textContent = 'Numero Scelto: ${event.target.value}';
-});
+numeroUtente.addEventListener('change', sceltaDelNumero);
+
+function sceltaDelNumero (event){
+    const numeroDelComputer = Math.floor(numeroCasuale() * 5 + 1);
+
+    sceltaUtenteInput.textContent = 'Hai scelto: '+sceltaUtente.value;
+    numeroUtenteInput.textContent = 'Numero Scelto: '+event.target.value;
+    numeroComputer.textContent = 'Numero scelto dal computer: '+numeroDelComputer;
+
+    const sommaNumeri = Number(event.target.value) + numeroDelComputer;
+
+    if (sceltaUtente.value === "pari" && pari(sommaNumeri)){
+        risultato.textContent = sommaNumeri + ": Hai vinto"
+    } 
+    
+    if (sceltaUtente.value === "pari" && pari(sommaNumeri) === false){
+        risultato.textContent = sommaNumeri + ": Hai perso"
+    }
+    
+    if (sceltaUtente.value === "dispari" && pari(sommaNumeri)){
+        risultato.textContent = sommaNumeri + ": Hai perso"
+    }
+
+    if (sceltaUtente.value === "dispari" && pari(sommaNumeri) === false){
+        risultato.textContent = sommaNumeri + ": Hai vinto"
+    }
+}
+
+function numeroCasuale() {
+    return Math.random();
+}
+
+function pari(numero) {
+    return Number.isInteger(numero / 2);
+}
