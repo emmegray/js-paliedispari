@@ -16,6 +16,10 @@ const risultato = document.querySelector('.risultato');
 
 numeroUtente.addEventListener('change', sceltaDelNumero);
 
+/**
+ * Scelta del numero casuale e controllo risultato
+ * @param {event} event 
+ */
 function sceltaDelNumero (event){
     const numeroDelComputer = Math.floor(numeroCasuale() * 5 + 1);
 

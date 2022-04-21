@@ -14,7 +14,6 @@ if (parola == parolaInversa){
     console.log('la parola non è palindroma')
 }
 
-
 //Versione con inserimento input dall'utente
 const input = document.querySelector('#input');
 const output = document.querySelector('#output');
@@ -31,6 +30,11 @@ input.addEventListener("change", function (event) {
     }
 });
 
+/**
+ * Reverse stringa passata
+ * @param {string} str 
+ * @returns 
+ */
 function invertiParola(str) {
     const arrCaratteri = str.split("");
     const arrCaratteriInversi = arrCaratteri.reverse();
